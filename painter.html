@@ -16,14 +16,14 @@
         <input type="button" onclick="checkPainter()" value="check the painter name">
     </form>
 
-
     <p id="result">This text will be replaced </p>
 
     <script>
+        let good = 0;
+        let oops = 0;
 
         function checkPainter() {
-            let good = 0;
-            let oops = 0;
+            
             console.log("Getting form values")
             x = document.getElementById("secret_name").value
             y = document.getElementById("form1_sai").value
@@ -31,12 +31,12 @@
             if (x==y) {
                 good = good+1;
                 alert("You got it right")
-                out.innerHTML= "correct: "+good+" "+"wrong: "+oops
+                
             } else {
                 oops = oops+1;
                 alert("Sorry")
-                out.innerHTML= "correct: "+good+" "+"wrong: "+oops
-            }
+               
+            } out.innerHTML= "correct: "+good+" "+"wrong: "+oops
         }
     </script>
 
