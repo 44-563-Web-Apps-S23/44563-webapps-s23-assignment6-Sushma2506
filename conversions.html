@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head><title>Currency conversions</title></head>
+<body>
+
+<h2>Getting input</h2>
+<h2>Sushma shows currency conversions</h2>
+
+<form>
+    <label for="Enter base amount">What base amount</label>
+    <input type ="number" id="base_amount" name="Enter base amount" value=50> <br>
+
+    <label for="Enter the conversion rate">What is the conversion rate</label>
+    <input type ="number" id="conversion_rate" name="Enter the conversion rate" value=35> <br>
+
+    <input type="button" class="btn btn-primary" onclick="convert()" value="Show conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let toShow = " ";
+
+function convert(){
+    console.log("Getting form values")
+    base = document.getElementById("base_amount").value
+    conversion = document.getElementById("conversion_rate").value
+    for(let i=0; i<5; i++){
+        let value = conversion*base;
+        toShow = toShow+" "+ base +"is" +value +";";
+        base = base*2;
+    }
+    document.getElementById("result").innerHTML = "Conversions are: " +toShow;
+}
+</script>
+
+</body>
+</html> 
