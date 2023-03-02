@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>About candy</title></head>
+<body>
+
+<h2>Getting input</h2>
+<h2>Sushma chooses candy</h2>
+<form>
+    <label for="dark-chocolate">Dark Chocolate</label>
+    <input type ="checkbox" id="dark-chocolate" name="dark-chocolate" value="True"> <br>
+
+    <label for="Nuts">Nuts</label>
+    <input type ="checkbox" id="Nuts" name="Nuts" value="True"> <br>
+    <label for="Chewy">Chewy</label>
+    <input type ="checkbox" id="Chewy" name="Chewy" value="False"> <br>
+
+    <input type="button" onclick="selectBox()" value="Select a box">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let my_candy_box = {};
+
+function selectBox() {
+  my_candy_box = {};
+  my_candy_box.dark = document.getElementById("dark-chocolate").checked;
+  my_candy_box.nuts = document.getElementById("Nuts").checked;
+  my_candy_box.chewy = document.getElementById("Chewy").checked;
+  document.getElementById("result").innerHTML = JSON.stringify(my_candy_box);
+}
+
+</script>
+
+</body>
+</html> 
