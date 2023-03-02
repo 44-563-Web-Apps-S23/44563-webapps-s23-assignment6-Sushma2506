@@ -16,21 +16,44 @@
 
     <input type="button" onclick="selectBox()" value="Select a box">
 </form>
-
-
 <p id="result">This text will be replaced </p>
-
+<form>
+    <label for="size">Enter the size</label>
+    <input type="text" id="size" value="size">
+    <label for="price">Enter price</label>
+    <input type="text" id="price" value="price">
+    <br>
+    <button type="button" onclick="updateBox()">Update the box</button>
+</form>
 <script> 
 let my_candy_box = {};
 
 function selectBox() {
   my_candy_box = {};
-  my_candy_box.dark = document.getElementById("dark-chocolate").checked;
-  my_candy_box.nuts = document.getElementById("Nuts").checked;
-  my_candy_box.chewy = document.getElementById("Chewy").checked;
+  if(document.getElementById("dark-chocolate").checked == true){
+    my_candy_box['dark-chocolate'] = true
+  } else{
+    my_candy_box['dark-chocolate'] = false
+  }
+  if(document.getElementById("Nuts").checked == true){
+    my_candy_box['Nuts'] = true
+  }else{
+    my_candy_box['Nuts'] = false
+  }
+  if(document.getElementById("Chewy").checked == true){
+    my_candy_box['Chewy'] = true
+  }else{
+    my_candy_box['Chewy'] = false
+  }
+
   document.getElementById("result").innerHTML = JSON.stringify(my_candy_box);
 }
-
+function updateBox() {
+                let size = document.getElementById("size").value;
+                let price = document.getElementById("price").value;
+                my_candy_box[size] = price;
+                document.getElementById("result").innerHTML = JSON.stringify(my_candy_box);
+            }
 </script>
 
 </body>
