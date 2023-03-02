@@ -35,7 +35,7 @@
     <script>
         let good = 0;
         let oops = 0;
-
+        let count =0;
         function checkPainter() {
 
             console.log("Getting form values")
@@ -43,15 +43,25 @@
             y = document.getElementById("form1_sai").value
             out = document.getElementById("result")
             if (x == y) {
+                count =0;
                 good = good + 1;
                 alert("You got it right")
 
             } else {
+                count = count+1;
                 oops = oops + 1;
                 alert("Sorry")
 
-            } out.innerHTML = "correct: " + good + " " + "wrong: " + oops
+            } if(count>=3){
+                if(oops>=3){
+                    addAlert();
+                }
+            }
+            out.innerHTML = "correct: " + good + " " + "wrong: " + oops
+            function addAlert(){
+                alert("Sorry,game over.")
         }
+    }
     </script>
      <div class="container">
         <img src="Images/yellowfrit.jpg" height="100" width="100" alt="yellowfrit image" id="images" onclick="selectImage()" >
